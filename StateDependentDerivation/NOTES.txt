@@ -1,0 +1,8 @@
+Here, use the Green's function generated in the previously when scenario dependence was detected.
+The run follows RCP6, we have 4 pulses, each in year 2020, 2055, 2078 and 2100. Their corresponding variables (F & T) are written in the table (greentable.xlsx).
+We approximate the pulses with a step function  (no clear justification yet, it is somewhere in 'between'), that step function is then a constant depending on C(T,F). 
+For now, we use just the T dependency due to easier integration. Then we plot the C(T) and approximate a function out of it. Finally, dT=C(t)dE we integrate and get the equation for T=TCRE(T)*F.
+
+Further to do: 
+
+* See if there is a way to incorporate sensitivity analysis on CS.
