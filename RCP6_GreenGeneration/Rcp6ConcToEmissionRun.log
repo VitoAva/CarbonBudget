@@ -1,0 +1,39 @@
+
+--- Job Rcp6ConcToEmissionRun.gms Start 05/09/22 14:06:05 35.1.0 r82a9585 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\35\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2020\ConcentrationsToEmissions\Rcp6ConcToEmissionRun.gms
+    PageWidth 80
+    PageSize 0
+    PageContr 3
+    Action CE
+    ScrDir C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\225a\
+    SysDir C:\GAMS\35\
+    WorkDir C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\
+    LogOption 3
+    DFormat 0
+    TFormat 0
+    ErrorLog 99
+    IDE 1
+    GDX C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\constconc2020-2101run.gdx
+Licensee: Large MUD - 20 User License                    S190529/0001AL-WIN
+          Universitaet Hamburg, Exzellenzcluster CliSAP              DC5860
+          C:\GAMS\35\gamslice.txt
+GAMS 35.1.0   Copyright (C) 1987-2021 GAMS Development. All rights reserved
+--- Starting compilation
+--- Rcp6ConcToEmissionRun.gms(37) 3 Mb 1 Error
+*** Error 282 in C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2020\ConcentrationsToEmissions\Rcp6ConcToEmissionRun.gms
+    Unable to open include file
+       Hint: Does the filename need to be quoted?
+--- Rcp6ConcToEmissionRun.gms(112) 3 Mb 2 Errors
+*** Error 140 in C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2020\ConcentrationsToEmissions\Rcp6ConcToEmissionRun.gms
+    Unknown symbol
+--- Rcp6ConcToEmissionRun.gms(182) 3 Mb 3 Errors
+*** Error 257 in C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2020\ConcentrationsToEmissions\Rcp6ConcToEmissionRun.gms
+    Solve statement not checked because of previous errors
+--- GDX File C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\constconc2020-2101run.gdx
+--- Rcp6ConcToEmissionRun.gms(182) 3 Mb 3 Errors
+*** Status: Compilation error(s)
+--- Job Rcp6ConcToEmissionRun.gms Stop 05/09/22 14:06:05 elapsed 0:00:00.084
+Exit code = 2

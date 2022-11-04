@@ -1,0 +1,223 @@
+GAMS 35.1.0  r82a9585 Released Apr 29, 2021 WEX-WEI x86 64bit/MS Windows - 05/09/22 14:06:05 Page 1
+G e n e r a l   A l g e b r a i c   M o d e l i n g   S y s t e m
+C o m p i l a t i o n
+
+
+   1   
+   2  Sets
+   3  t "time steps" /t1850*t2101/
+   4   
+   5  i
+   6  /i1*i4/
+   7   
+   8  j
+   9  / j1*j3/
+  10  ;
+  11   
+  12   
+  13   
+  14  Scalars
+  15  r0
+  16  r_u
+  17  r_T
+  18  r_a
+  19  ppm_gtc
+  20  f1
+  21  f3
+  22  zeit                                   /1/
+  23  g0
+  24  g1
+  25  c0
+  26  ;
+  27   
+  28  r0 = 33.9 ;
+  29  r_u = 0.0188 ;
+  30  r_T = 2.67 ;
+  31  r_a = 0;
+  32  c0=280;
+  33  f1     = 4.57 ;
+  34  f3 =     0.086 ;
+  35  ppm_gtc = 2.12  ;
+  36   
+  37  $include "ConcentrationInput.inc";
+****                                  $282
+**** 282  Unable to open include file
+****         Hint: Does the filename need to be quoted?
+  38   
+  39  Parameters
+  40   
+  41  a(i)
+  42  /
+  43  i1   0.217
+  44  i2   0.224
+  45  i3   0.282
+  46  i4   0.276
+  47  /
+  48   
+  49  teta(i)
+  50  /
+  51  i1   1000000000.0
+  52  i2   394
+  53  i3   36.5
+  54  i4   4.3
+  55  /
+  56   
+  57  q(j)
+  58  /
+  59  j1   0.180
+  60  j2   0.297
+  61  j3   0.386
+  62  /
+  63   
+  64  d(j)
+  65  /
+  66  j1  0.903
+  67  j2   7.92
+  68  j3   355
+  69  /
+  70  ;
+  71   
+  72  g1 = sum(i, a(i)*teta(i)*(1-(1+100/teta(i))*exp(-100/teta(i))));
+  73  g0 = exp((-1/g1)*sum(i, a(i)*teta(i)*(1- exp(-100/teta(i))) ));
+  74   
+  75   
+  76  Positive variables
+  77  Temp(t)
+  78  E(t)
+  79  FCO2(t)
+  80  alpha(t)
+  81  ;
+  82   
+  83  Variables
+  84  G_u(t)
+  85  Temp3(j,t)
+  86  G_a(t)
+  87  R(i,t)
+  88  Ftot(t)
+  89  F(t)
+  90  Xariable
+  91  ;
+  92   
+  93  Equations
+  94  Eq1(i,t)
+  95  Eq2(t)
+  96  Eq3(t)
+  97  Eq4(t)
+  98  Eq5(t)
+  99  Eq6(t)
+ 100  Eq7(t)
+ 101  Eq8(j,t)
+ 102  Eq9(t)
+ 103  Cum_Eq(t)
+ 104  Eq007
+ 105  ;
+ 106   
+ 107  Eq1(i,t+1)..
+ 108     R(i,t+1) =e=  a(i) * alpha(t)* teta(i) * (E(t)/ ppm_gtc) * (1-exp(-zeit
+      /(alpha(t)* teta(i))))
+ 109                         + R(i,t) * exp(-zeit/(alpha(t)* teta(i)) ) ;
+ 110   
+ 111  Eq2(t+1)..
+ 112     Co2Conc(t+1) =e= c0 +  sum(i, R(i,t+1));
+****           $140
+**** 140  Unknown symbol
+ 113   
+ 114  Eq3(t)..
+ 115      alpha(t) =e= g0 * exp(  (r0 + r_u * G_u(t) + r_T * Temp(t) + r_a * G_a
+      (t))/g1) ;
+ 116   
+ 117  Eq4(t)..
+ 118     G_a(t) =e= sum(i, R(i,t)) *  ppm_gtc ;
+ 119   
+ 120  Cum_Eq(t)..
+ 121      F(t) =e= F(t-1)+E(t-1);
+ 122   
+ 123  Eq5(t)..
+ 124     G_u(t) =e= F(t) - G_a(t) ;
+ 125   
+ 126  Eq6(t)..
+ 127     Ftot(t) =e= FCO2(t)
+ 128   ;
+ 129   
+ 130  Eq7(t)..
+ 131     FCO2(t) =e= f1*log((Co2Conc(t)+0.001)/c0) + f3*(sqrt(Co2Conc(t)) - sqrt
+      (c0)) ;
+ 132   
+ 133  Eq8(j,t+1)..
+ 134     Temp3(j,t+1) =e= Temp3(j,t) * exp(-zeit/d(j))  + q(j)*Ftot(t+1) * (1- e
+      xp(-zeit/d(j))) ;
+ 135   
+ 136  Eq9(t+1)..
+ 137     Temp(t+1) =e= sum(j,Temp3(j,t+1));
+ 138   
+ 139  Eq007..
+ 140      Xariable =e= 42;
+ 141   
+ 142   
+ 143  *******CALIBRATION*******
+ 144   
+ 145  *$ontext
+ 146  R.fx("i1","t1850") = 0 ;
+ 147  R.fx("i2","t1850") = 0  ;
+ 148  R.fx("i3","t1850") = 0  ;
+ 149  R.fx("i4","t1850") = 0  ;
+ 150  *$offtext
+ 151   
+ 152   
+ 153   
+ 154  alpha.lo(t)  = 0.1 ;
+ 155   
+ 156   
+ 157  G_a.l("t1850") =  sum(i, R.l(i,"t1850")) *  ppm_gtc;
+ 158   
+ 159  G_u.l("t1850") =  0 ;
+ 160   
+ 161   
+ 162  FCO2.l("t1850") = f1 * log((CO2Conc.l("t1850")+0.001)/c0) + f3*(sqrt(Co2Co
+      nc.l("t1850"))-sqrt(c0));
+ 163  Ftot.l("t1850") = FCO2.l("t1850") ;
+ 164   
+ 165  Temp3.fx("j1","t1850") = 0  ;
+ 166  Temp3.fx("j2","t1850") = 0  ;
+ 167  Temp3.fx("j3","t1850") = 0  ;
+ 168   
+ 169   
+ 170   
+ 171  Temp.fx("t1850") = Temp3.l("j1","t1850") + Temp3.l("j2","t1850") + Temp3.l
+      ("j3","t1850")  ;
+ 172   
+ 173  alpha.l("t1850") = g0 * exp((r0 + r_u * G_u.l("t1850") + r_T * Temp.l("t18
+      50") + r_a * G_a.l("t1850") )/g1) ;
+ 174   
+ 175   
+ 176   
+ 177  *============================   End Of File   ============================
+      ====
+ 178   
+ 179  model unfair /all/
+ 180   
+ 181  option nlp = conopt3;
+ 182  solve unfair maximizing xariable using nlp ;
+****                                             $257
+**** 257  Solve statement not checked because of previous errors
+
+**** 3 ERROR(S)   0 WARNING(S)
+
+
+COMPILATION TIME     =        0.016 SECONDS      3 MB  35.1.0 r82a9585 WEX-WEI
+
+
+USER: Large MUD - 20 User License                    S190529/0001AL-WIN
+      Universitaet Hamburg, Exzellenzcluster CliSAP              DC5860
+      License for teaching and research at degree granting institutions
+
+
+**** FILE SUMMARY
+
+Input      C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGe
+           n\CO2Conc_input\Pulse2020\ConcentrationsToEmissions\Rcp6ConcToEmissio
+           nRun.gms
+Output     C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGe
+           n\CO2Conc_input\Rcp6ConcToEmissionRun.lst
+
+**** USER ERROR(S) ENCOUNTERED

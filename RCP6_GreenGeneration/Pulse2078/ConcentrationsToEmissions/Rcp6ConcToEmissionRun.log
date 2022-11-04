@@ -1,0 +1,93 @@
+
+--- Job Rcp6ConcToEmissionRun.gms Start 05/09/22 15:02:57 35.1.0 r82a9585 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\35\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2078\ConcentrationsToEmissions\Rcp6ConcToEmissionRun.gms
+    PageWidth 80
+    PageSize 0
+    PageContr 3
+    Action CE
+    ScrDir C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2078\ConcentrationsToEmissions\225a\
+    SysDir C:\GAMS\35\
+    WorkDir C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2078\ConcentrationsToEmissions\
+    LogOption 3
+    DFormat 0
+    TFormat 0
+    ErrorLog 99
+    IDE 1
+    GDX C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2078\ConcentrationsToEmissions\constconc2078-2178run.gdx
+Licensee: Large MUD - 20 User License                    S190529/0001AL-WIN
+          Universitaet Hamburg, Exzellenzcluster CliSAP              DC5860
+          C:\GAMS\35\gamslice.txt
+GAMS 35.1.0   Copyright (C) 1987-2021 GAMS Development. All rights reserved
+--- Starting compilation
+--- Rcp6ConcToEmissionRun.gms(37) 3 Mb
+--- . ConcentrationInput.inc(335) 3 Mb
+--- Rcp6ConcToEmissionRun.gms(182) 3 Mb
+--- Starting execution: elapsed 0:00:00.096
+--- Rcp6ConcToEmissionRun.gms(516) 4 Mb
+--- Generating NLP model unfair
+--- Rcp6ConcToEmissionRun.gms(517) 7 Mb
+---   4,927 rows  4,935 columns  16,416 non-zeroes
+---   36,090 nl-code  4,594 nl-non-zeroes
+--- Rcp6ConcToEmissionRun.gms(517) 5 Mb
+--- Executing CONOPT3 (Solvelink=2): elapsed 0:00:00.115
+
+CONOPT 3         35.1.0 r82a9585 Released Apr 29, 2021 WEI x86 64bit/MS Window
+
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        4.7331608382E+04 (Input point)
+ 
+                   Pre-triangular equations:   1975
+                   Post-triangular equations:  0
+                   Definitional equations:     1968
+ 
+      1   0        4.6658075749E+04 (After pre-processing)
+      2   0        4.9200766631E+02 (After scaling)
+      3   1   653  4.4012526719E+02 5.5E+00    50 1.0E+00    3 T  T
+      4   1   644  4.1975098283E+02 5.0E+00    47 1.0E+00    9 T  T
+      5   1   631  4.0224884085E+02 3.3E+00    38 1.0E+00   13 T  T
+      6   1   613  3.8618717702E+02 2.1E+00    25 1.0E+00   18 T  T
+      7   1   590  3.7616969362E+02 3.9E+00    57 1.0E+00   23 T  T
+      8   1   560  3.7464561085E+02 1.4E+00    34 1.0E+00   30 T  T
+      9   1   531  3.6738400500E+02 1.5E+00    54 1.0E+00   29 T  T
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+     10   1   499  3.4426105792E+02 1.3E+00    75 1.0E+00   32 T  T
+     11   1   459  3.3742985314E+02 1.1E+00    43 1.0E+00   40 T  T
+     12   1   417  3.2627556572E+02 1.1E+00    53 1.0E+00   42 T  T
+     13   1   370  3.1158931089E+02 1.1E+00    61 1.0E+00   47 T  T
+     14   1   318  2.9641866390E+02 1.1E+00    64 1.0E+00   52 T  T
+     15   1   317  2.5937014204E+02 1.1E+00    62 1.0E+00   57 T  T
+     16   1   249  2.5662141957E+02 4.7E+00   111 1.0E+00   68 T  T
+     17   1   248  1.2732219378E+02 9.1E-01    93 9.7E-01   67 T  T
+     18   1   170  1.1728971465E+02 9.1E-01    92 1.0E+00   78 T  T
+     19   1   170  9.7700532625E+01 2.2E-01   114 1.8E-01   77 F  F
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+     20   1   158  6.6907925698E+01 1.3E+02   114 1.0E+00   38 T  T
+     21   1   115  1.7075985966E+01 3.3E+00    76 1.0E+00   43 T  T
+     22   1   114  8.2774444638E-01 2.5E-01    98 1.0E+00   45 T  T
+     23   1    57  6.4357614753E-01 1.7E+00   111 1.0E+00   57 T  T
+     24   1     5  3.0719890384E-02 4.4E-02    54 1.0E+00   52 T  T
+ 
+ ** Feasible solution. Value of objective =    42.0000000000
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+     25   3        4.2000000000E+01 0.0E+00     0
+ 
+ ** Optimal solution. There are no superbasic variables.
+ 
+--- Reading solution for model unfair
+--- GDX File C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2078\ConcentrationsToEmissions\constconc2078-2178run.gdx
+*** Status: Normal completion
+--- Job Rcp6ConcToEmissionRun.gms Stop 05/09/22 15:02:58 elapsed 0:00:00.563

@@ -1,0 +1,67 @@
+
+--- Job green_gen_run2100.gms Start 05/09/22 15:23:49 35.1.0 r82a9585 WEX-WEI x86 64bit/MS Windows
+--- Applying:
+    C:\GAMS\35\gmsprmNT.txt
+--- GAMS Parameters defined
+    Input C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2100\GreenGen\green_gen_run2100.gms
+    PageWidth 80
+    PageSize 0
+    PageContr 3
+    Action CE
+    ScrDir C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2100\GreenGen\225a\
+    SysDir C:\GAMS\35\
+    WorkDir C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2100\GreenGen\
+    LogOption 3
+    DFormat 0
+    TFormat 0
+    ErrorLog 99
+    IDE 1
+    GDX C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2100\GreenGen\green2100.gdx
+Licensee: Large MUD - 20 User License                    S190529/0001AL-WIN
+          Universitaet Hamburg, Exzellenzcluster CliSAP              DC5860
+          C:\GAMS\35\gamslice.txt
+GAMS 35.1.0   Copyright (C) 1987-2021 GAMS Development. All rights reserved
+--- Starting compilation
+--- green_gen_run2100.gms(37) 3 Mb
+--- . GreenGenConcEmission2100.inc(710) 3 Mb
+--- green_gen_run2100.gms(239) 3 Mb
+--- Starting execution: elapsed 0:00:00.093
+--- green_gen_run2100.gms(948) 4 Mb
+--- Generating NLP model unfair
+--- green_gen_run2100.gms(949) 9 Mb
+---   10,833 rows  10,851 columns  33,889 non-zeroes
+---   74,024 nl-code  7,684 nl-non-zeroes
+--- green_gen_run2100.gms(949) 7 Mb
+--- Executing CONOPT3 (Solvelink=2): elapsed 0:00:00.128
+
+CONOPT 3         35.1.0 r82a9585 Released Apr 29, 2021 WEI x86 64bit/MS Window
+
+ 
+ 
+    C O N O P T 3   version 3.17K
+    Copyright (C)   ARKI Consulting and Development A/S
+                    Bagsvaerdvej 246 A
+                    DK-2880 Bagsvaerd, Denmark
+ 
+ 
+   Iter Phase Ninf   Infeasibility   RGmax    NSB   Step InItr MX OK
+      0   0        2.4085338128E+05 (Input point)
+ 
+                   Pre-triangular equations:   10833
+                   Post-triangular equations:  0
+ 
+      1   0        0.0000000000E+00 (After pre-processing)
+      2   0        0.0000000000E+00 (After scaling)
+ 
+ ** Feasible solution. Value of objective =    42.0000000000
+ 
+   Iter Phase Ninf     Objective     RGmax    NSB   Step InItr MX OK
+      3   3        4.2000000000E+01 0.0E+00     0 0.0E+00    0 F  T
+      4   3        4.2000000000E+01 0.0E+00     0
+ 
+ ** Optimal solution. There are no superbasic variables.
+ 
+--- Reading solution for model unfair
+--- GDX File C:\Users\vitoa\OneDrive\Desktop\Work\Matlab-GAMS\FinalTake\01\GreenGen\CO2Conc_input\Pulse2100\GreenGen\green2100.gdx
+*** Status: Normal completion
+--- Job green_gen_run2100.gms Stop 05/09/22 15:23:50 elapsed 0:00:00.277
